@@ -4,7 +4,14 @@ import {WeatherInfo} from "../../utils/types";
 
 const weatherSlice = createSlice({
     name: "weather",
-    initialState:{} as WeatherInfo,
+    initialState: {
+        country: '',
+        city: '',
+        temp: 0,
+        pressure: 0,
+        sunset: 0,
+        timeStamp: 0
+    } as WeatherInfo,
     reducers: {},
     extraReducers: builder => {
         builder
