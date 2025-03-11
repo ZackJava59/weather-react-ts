@@ -3,13 +3,13 @@ import {useGetWeatherByCityQuery} from "../features/Api/WeatherApi.ts";
 
 const Weather = () => {
     const city = useAppSelector(state => state.city)
-    const {data, error, isloading} = useGetWeatherByCityQuery(city);
+    const {data, error, isLoading} = useGetWeatherByCityQuery(city);
 
     if (!city) {
         return <div className={'infoWeath'}>Enter city name</div>;
     }
 
-    if (isloading) {
+    if (isLoading) {
         return <div className={'infoWeath'}>Pending...</div>;
     }
 
@@ -22,10 +22,10 @@ const Weather = () => {
         <div className={'infoWeath'}>
             {!!data &&
                 <>
-                    <p>Location: {data.sys.country}, {data.name}</p>
-                    <p>Temp: {data.main.temp}</p>
-                    <p>Pressure: {data.main.pressure}</p>
-                    <p>Sunset: {new Date(data.sys.sunset * 1000).toLocaleTimeString()}</p>
+                    <p>Location: {data.country}, {data.city}</p>
+                    <p>Temp: {data.temp}</p>
+                    <p>Pressure: {data.pressure}</p>
+                    <p>Sunset: {new Date(data.sunset).toLocaleTimeString()}</p>
                 </>
             }
         </div>

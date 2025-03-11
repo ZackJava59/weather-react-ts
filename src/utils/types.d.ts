@@ -3,8 +3,7 @@ export interface WeatherInfo {
     city: string,
     temp: number,
     pressure: number,
-    sunset: number,
-    timeStamp: number
+    sunset: number
 }
 
 export interface WeatherInfoResponse {
