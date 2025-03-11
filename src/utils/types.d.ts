@@ -1,8 +1,20 @@
-export interface WeatherInfo{
+export interface WeatherInfo {
     country: string,
     city: string,
     temp: number,
     pressure: number,
     sunset: number,
     timeStamp: number
+}
+
+export interface WeatherInfoResponse {
+    name: string,
+    main: {
+        temp: number,
+        pressure: number,
+    },
+    sys: {
+        country: string,
+        sunset: number,
+    }
 }
