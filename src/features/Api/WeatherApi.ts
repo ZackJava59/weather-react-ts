@@ -1,4 +1,4 @@
-import {api_key, base_url} from "../../utils/constants.ts";
+import {api_key, base_url, weather_cache_time} from "../../utils/constants.ts";
 import {WeatherInfo, WeatherInfoResponse} from "../../utils/types";
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 
@@ -9,7 +9,7 @@ export const weatherApi = createApi({
     endpoints: builder => ({
         getWeatherByCity: builder.query<WeatherInfo, string>({
             query: (city: string) => `?q=${city}&appid=${api_key}&units=metric`,
-            //KeepUnusedDataFor:
+            keepUnusedDataFor: weather_cache_time,
             transformResponse: (data: WeatherInfoResponse) => ({
                 city: data.name,
                 temp: data.main.temp,
